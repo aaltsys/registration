@@ -31,7 +31,7 @@ while true
   print "Registration Number: "
   STDOUT.flush
   registration_number = STDIN.gets.chomp!
-  break if verify_reg(registration_number)
+  break if (!registration_number.nil? and verify_reg(registration_number))
   puts "Invalid Registration Number!"
 end
 
