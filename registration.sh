@@ -12,12 +12,16 @@ activation_code=''
 email=''
 
 def verify_reg(reg)
+  begin
   unless reg.nil? and reg.length != 10
     id = reg[1..8].to_i
     check = "#{id}#{id % 7}".to_i
     check = "#{check % 11}#{check.to_s.rjust(9, '0')}"
     check === reg
   else
+    return false
+  end
+  rescue
     return false
   end
 end
