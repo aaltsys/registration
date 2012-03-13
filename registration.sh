@@ -9,13 +9,12 @@ dpkg -i /tmp/webmin.deb
 apt-get -f install
 rm /tmp/webmin.deb
 
-wget https://raw.github.com/aaltsys/registration/master/registration.rb -o /tmp/reg.rb
+wget https://raw.github.com/aaltsys/registration/master/registration.rb -O /tmp/reg.rb
+/usr/bin/ruby /tmp/reg.rb
+rm /tmp/reg.rb
 
 chmod +w /etc/rc.local
 sed -i 's%exit 0%/etc/init.d/openvpn start client%' /etc/rc.local
 echo "exit 0" >> /etc/rc.local
 chmod -w /etc/rc.local
 invoke-rc.d openvpn restart client
-
-/usr/bin/ruby /tmp/reg.rb
-rm /tmp/reg.rb
