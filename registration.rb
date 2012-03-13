@@ -22,21 +22,28 @@ def verify_reg(reg)
 end
 
 while true
-  registration_number = `dialog --backtitle "AAltSys Registration" --inputbox "Registration Number" 8 40`
-  break if (!registration_number.nil? and verify_reg(registration_number))
-  `dialog --backtitle "AAltSys Registration" --msgbox "Invalid Registration Number." 5 32`
+  puts 
+  print "Registration Number: "
+  STDOUT.flush
+  registration_number = STDIN.gets.chomp!
+  break if verify_reg(registration_number)
+  puts "Invalid Registration Number!"
 end
 
 while true
-  activation_code = `dialog --backtitle "AAltSys Registration" --inputbox "Activation Number" 8 40`
+  puts
+  print "Activation Number: "
+  activation_code = STDIN.gets.chomp!
   break if (!activation_code.nil? and !activation_code.empty?)
-  `dialog --backtitle "AAltSys Registration" --msgbox "Invalid Activation Number." 5 30`
+  puts "Invalid Activation Number!"
 end
 
 while true
-  email = `dialog --backtitle "AAltSys Registration" --inputbox "Email Address" 8 40`
+  puts 
+  print "Email Address: "
+  email = STDIN.gets.chomp!
   break if email.include?("@")
-  `dialog --backtitle "AAltSys Registration" --msgbox "Invalid Email Address." 5 26`
+  puts "Invalid Email Address!"
 end
 
 begin
