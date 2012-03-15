@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
 
-aptitude -y install ruby-full unzip openvpn screen dialog python-software-properties byobu
+aptitude -y install ruby-full unzip openvpn screen dialog python-software-properties byobu gdebi autofs ntfsprogs
 add-apt-repository ppa:hplip-isv/ppa
-aptitude update
-aptitude install hpijs hpijs-ppds hplip hplip-cups hplip-data
+aptitude -y update
+aptitude -y install hpijs hpijs-ppds hplip hplip-cups hplip-data
 wget http://www.webmin.com/download/deb/webmin-current.deb -O /tmp/webmin.deb
 dpkg -i /tmp/webmin.deb
 apt-get -f install
