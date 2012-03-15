@@ -32,10 +32,10 @@ end
 
 while true
   puts
-  print "Activation Number: "
+  print "Activation Code: "
   activation_code = STDIN.gets.chomp!
   break if (!activation_code.nil? and !activation_code.empty?)
-  puts "Invalid Activation Number!"
+  puts "Invalid Activation Code!"
 end
 
 while true
