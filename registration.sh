@@ -18,3 +18,5 @@ sed -i 's%exit 0%/etc/init.d/openvpn start client%' /etc/rc.local
 echo "exit 0" >> /etc/rc.local
 chmod -w /etc/rc.local
 invoke-rc.d openvpn restart client
+
+aptitude -y upgrade
