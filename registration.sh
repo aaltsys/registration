@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-aptitude -y install ruby-full unzip openvpn screen dialog python-software-properties byobu gdebi autofs ntfsprogs
+aptitude -y install ruby-full unzip openvpn screen dialog python-software-properties byobu gdebi autofs ntfsprogs curl
 add-apt-repository ppa:hplip-isv/ppa
 aptitude -y update
 aptitude -y install hpijs hpijs-ppds hplip hplip-cups hplip-data
