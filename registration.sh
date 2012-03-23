@@ -6,7 +6,7 @@ aptitude -y update
 aptitude -y install hpijs hpijs-ppds hplip hplip-cups hplip-data
 wget http://www.webmin.com/download/deb/webmin-current.deb -O /tmp/webmin.deb
 dpkg -i /tmp/webmin.deb
-apt-get -f install
+apt-get -y -f install
 rm /tmp/webmin.deb
 
 wget https://raw.github.com/aaltsys/registration/master/registration.rb -O /tmp/reg.rb
