@@ -15,11 +15,9 @@ rm /tmp/reg.rb
 echo "Press enter to continue..."
 read
 
-chmod +w /etc/rc.local
-sed -i 's%exit 0%/etc/init.d/openvpn start client%' /etc/rc.local
-echo "exit 0" >> /etc/rc.local
-chmod -w /etc/rc.local
-invoke-rc.d openvpn restart client
+wget https://raw.github.com/aaltsys/registration/master/aaltsys-vpn -O /etc/init.d/aaltsys-vpn
+update-rc.d -f aaltsys-vpn defaults
+invoke-rc.d aaltsys-vpn start
 mkdir -p /home/mnt/backup/source_config
 
 
