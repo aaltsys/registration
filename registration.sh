@@ -26,6 +26,8 @@ sudo update-rc.d aaltsysvpn defaults
 # change vpn configuration "client" to "aaltsys"
 sudo mv /etc/openvpn/client.conf /etc/openvpn/aaltsys.conf
 
+sudo invoke-rc.d aaltsysvpn start
+
 mkdir -p /home/mnt/backup/source_config
 
 
