@@ -15,9 +15,17 @@ rm /tmp/reg.rb
 echo "Press enter to continue..."
 read
 
-wget https://raw.github.com/aaltsys/registration/master/aaltsys-vpn -O /etc/init.d/aaltsys-vpn
-update-rc.d -f aaltsys-vpn defaults
-invoke-rc.d aaltsys-vpn start
+# create default script variables for aaltsysvpn
+sudo bash < <(echo 'echo "AUTOSTART=\"aaltsys\"" > /etc/default/aaltsysvpn')
+# create boot init script for aaltsysvpn (copied from openvpn script)
+sudo cp /etc/init.d/openvpn /etc/init.d/aaltsysvpn
+# edit script to point to aaltsysvpn default script variables
+sudo sed -i s/"default\/openvpn"/"default\/aaltsysvpn"/ /etc/init.d/aaltsysvpn
+# create run-level pointers to the aaltsysvpn script
+sudo update-rc.d aaltsysvpn defaults
+# change vpn configuration "client" to "aaltsys"
+sudo mv /etc/openvpn/client.conf /etc/openvpn/aaltsys.conf
+
 mkdir -p /home/mnt/backup/source_config
 
 
