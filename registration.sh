@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 
+apt-get -y install aptitude
 aptitude -y install links lynx ruby-full unzip openvpn screen dialog python-software-properties byobu gdebi autofs ntfsprogs curl smbclient
 add-apt-repository ppa:hplip-isv/ppa
 aptitude -y update
