@@ -49,11 +49,13 @@ unless success
   end
 
   begin
-    if Pathname.exists("/tmp/i")
+    p = Pathname.new("/tmp/i")
+    if p.exists
       hostname = "192.168.1.240"
     else
       hostname = "register.aaltsys.net"
     end
+    puts hostname
     res = Net::HTTP.get_response(URI.parse("http://#{hostname}/activate?registration_number=#{registration_number}&activation=#{activation_code}&email=#{email}&version=#{version}"))
 
     case res
