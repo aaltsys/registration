@@ -2,7 +2,7 @@
 
 apt-get -y install aptitude
 aptitude -y install links lynx ruby-full unzip openvpn screen dialog python-software-properties byobu gdebi autofs ntfsprogs curl smbclient
-add-apt-repository ppa:hplip-isv/ppa
+#add-apt-repository ppa:hplip-isv/ppa
 aptitude -y update
 aptitude -y install hpijs hpijs-ppds hplip hplip-cups hplip-data
 wget http://www.webmin.com/download/deb/webmin-current.deb -O /tmp/webmin.deb
