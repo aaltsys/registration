@@ -1,5 +1,6 @@
 #! /usr/bin/env ruby
 require 'net/http'
+require 'pathname'
 
 version=11.02
 registration_number=''
@@ -48,7 +49,12 @@ unless success
   end
 
   begin
-    res = Net::HTTP.get_response(URI.parse("http://register.aaltsys.net/activate?registration_number=#{registration_number}&activation=#{activation_code}&email=#{email}&version=#{version}"))
+    if Pathname.exists("/tmp/i")
+      hostname = "192.168.1.240"
+    else
+      hostname = "register.aaltsys.net"
+    end
+    res = Net::HTTP.get_response(URI.parse("http://#{hostname}/activate?registration_number=#{registration_number}&activation=#{activation_code}&email=#{email}&version=#{version}"))
 
     case res
     when Net::HTTPOK
