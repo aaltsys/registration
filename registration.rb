@@ -51,7 +51,7 @@ unless success
   begin
     p = Pathname.new("/tmp/i")
     if p.exist?
-      hostname = "192.168.1.240"
+      hostname = "register.i.aaltsys.net"
     else
       hostname = "register.aaltsys.net"
     end
