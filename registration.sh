@@ -13,7 +13,6 @@ rm /tmp/webmin.deb
 wget https://raw.github.com/aaltsys/registration/master/registration.rb -O /tmp/reg.rb
 /usr/bin/ruby /tmp/reg.rb
 rm /tmp/reg.rb
-rm /tmp/i
 echo "Press enter to continue..."
 read
 
