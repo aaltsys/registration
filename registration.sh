@@ -1,14 +1,29 @@
 #! /usr/bin/env bash
 
-apt-get -y install aptitude
-aptitude -y install links lynx ruby-full unzip openvpn screen dialog python-software-properties byobu gdebi autofs ntfsprogs curl smbclient
+# webmin
+if [ ! -d '/etc/webmin' ] ; then
+   wget http://www.webmin.com/download/deb/webmin-current.deb -O /tmp/webmin.deb
+   dpkg -i /tmp/webmin.deb
+   apt-get -y -f install
+   rm /tmp/webmin.deb
+fi
+
+# ruby-full
+if [ ! -d '/usr/bin/ruby' ] ; then
+   apt-get -y install ruby-full
+fi
+
+# openvpn
+apt-get -y install openvpn
+
 #add-apt-repository ppa:hplip-isv/ppa
-aptitude -y update
-aptitude -y install hpijs hpijs-ppds hplip hplip-cups hplip-data
-wget http://www.webmin.com/download/deb/webmin-current.deb -O /tmp/webmin.deb
-dpkg -i /tmp/webmin.deb
+# hplip and other utilities
+apt-get -y install hpijs hpijs-ppds hplip hplip-cups hplip-data
+apt-get -y install autofs byobu screen links lynx unzip dialog gdebi
+apt-get -y install python-software-properties ntfsprogs curl smbclient
+
 apt-get -y -f install
-rm /tmp/webmin.deb
+apt-get -y update
 
 wget https://raw.github.com/aaltsys/registration/master/registration.rb -O /tmp/reg.rb
 /usr/bin/ruby /tmp/reg.rb
@@ -31,6 +46,4 @@ sudo invoke-rc.d aaltsysvpn start
 
 mkdir -p /home/mnt/backup/source_config
 
-
-
-aptitude -y upgrade
+apt-get -y upgrade
